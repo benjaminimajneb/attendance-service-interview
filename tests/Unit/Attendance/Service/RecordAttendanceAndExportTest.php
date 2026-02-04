@@ -6,11 +6,11 @@ namespace App\Tests\Unit\Attendance\Service;
 
 use App\Attendance\Model\AttendanceRecord;
 use App\Attendance\Repository\AttendanceRepositoryInterface;
-use App\Attendance\Service\RecordAttendanceAndExportToSis;
+use App\Attendance\Service\RecordAttendanceAndExport;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-final class RecordAttendanceAndExportToSisTest extends TestCase
+final class RecordAttendanceAndExportTest extends TestCase
 {
     #[Test]
     public function testIt(): void
@@ -24,12 +24,12 @@ final class RecordAttendanceAndExportToSisTest extends TestCase
                     && $r->studentStatuses === ['s1' => true, 's2' => false];
             }));
 
-        $svc = new RecordAttendanceAndExportToSis($repo);
+        $svc = new RecordAttendanceAndExport($repo);
 
         $svc->recordAndExport('C1', '2025-02-04', ['s1' => true, 's2' => false]);
 
         self::assertNotNull($repo);
-        self::assertInstanceOf(RecordAttendanceAndExportToSis::class, $svc);
+        self::assertInstanceOf(RecordAttendanceAndExport::class, $svc);
         self::assertSame('C1', 'C1');
     }
 }
