@@ -19,9 +19,9 @@ final class AttendanceExportClientFactory
 
     public function create(): AttendanceExportClientInterface
     {
-        $baseUrl = getenv('SIS_EXPORT_BASE_URL');
+        $baseUrl = getenv('EXPORT_BASE_URL');
         if ($baseUrl !== false && $baseUrl !== '') {
-            return new RealSisExportClient(ExportClientConfig::fromEnv());
+            return new RealExportClient(ExportClientConfig::fromEnv());
         }
         if ($this->logger !== null) {
             return new LogOnlyExportClient($this->logger);

@@ -16,9 +16,9 @@ final readonly class ExportClientConfig
     public static function fromEnv(): self
     {
         return new self(
-            baseUrl: getenv('SIS_EXPORT_BASE_URL') ?: '',
-            apiKey: getenv('SIS_EXPORT_API_KEY') ?: '',
-            timeoutSeconds: (int) (getenv('SIS_EXPORT_TIMEOUT') ?: '10'),
+            baseUrl: getenv('EXPORT_BASE_URL') ?: '',
+            apiKey: getenv('EXPORT_API_KEY') ?: '',
+            timeoutSeconds: (int) (getenv('EXPORT_TIMEOUT') ?: '10'),
         );
     }
 }

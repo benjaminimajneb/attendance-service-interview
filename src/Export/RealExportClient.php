@@ -6,7 +6,7 @@ namespace App\Export;
 
 use App\Attendance\Model\AttendanceRecord;
 
-final class RealSisExportClient implements AttendanceExportClientInterface
+final class RealExportClient implements AttendanceExportClientInterface
 {
     public function __construct(
         private ExportClientConfig $config,
