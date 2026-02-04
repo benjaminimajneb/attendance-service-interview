@@ -17,3 +17,6 @@
 # Conversation/notes files - never commit these
 cursor_tech_lead_interview_challenge_de.md
 *.md.de
+
+# Interview documentation - keep local only, never commit
+docs/interview-tech-lead-challenge.md
