@@ -19,5 +19,12 @@ services:
     App\:
         resource: '../src/'
 
+    # Runtime resolution: which sender/export implementation is chosen at boot (env-based)
+    App\Notification\NotificationSenderInterface:
+        factory: ['@App\Notification\NotificationSenderFactory', 'create']
+
+    App\Export\AttendanceExportClientInterface:
+        factory: ['@App\Export\AttendanceExportClientFactory', 'create']
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
