@@ -13,3 +13,7 @@
 /phpunit.xml
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+# Conversation/notes files - never commit these
+cursor_tech_lead_interview_challenge_de.md
+*.md.de
