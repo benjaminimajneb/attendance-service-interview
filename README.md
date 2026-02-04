@@ -6,7 +6,7 @@ A minimal Symfony 8 application providing a framework for a **classroom morning 
 
 - **`src/Attendance/`** – Domain and application layer:
   - **Model** – `AttendanceRecord`, `AttendanceSubmission` (value objects / DTOs).
-  - **Repository** – `AttendanceRepositoryInterface` (persistence abstraction).
+  - **Repository** – `AttendanceRepository` (persistence).
   - **Queue** – `QueueClientInterface` (async job enqueue).
   - **Service** – `AttendanceSubmissionService` (validate + enqueue), `AttendanceJobHandler` (process one job, persist via repository).
 

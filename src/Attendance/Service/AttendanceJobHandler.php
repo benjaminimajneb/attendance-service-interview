@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Attendance\Service;
 
 use App\Attendance\Model\AttendanceRecord;
-use App\Attendance\Repository\AttendanceRepositoryInterface;
+use App\Attendance\Repository\AttendanceRepository;
 
 /**
  * Processes a single attendance job from the queue (persists via repository).
@@ -13,7 +13,7 @@ use App\Attendance\Repository\AttendanceRepositoryInterface;
 final class AttendanceJobHandler
 {
     public function __construct(
-        private AttendanceRepositoryInterface $repository,
+        private AttendanceRepository $repository,
     ) {
     }
 

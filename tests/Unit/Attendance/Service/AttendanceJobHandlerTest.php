@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Attendance\Service;
 
 use App\Attendance\Model\AttendanceRecord;
-use App\Attendance\Repository\AttendanceRepositoryInterface;
+use App\Attendance\Repository\AttendanceRepository;
 use App\Attendance\Service\AttendanceJobHandler;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
@@ -15,7 +15,7 @@ final class AttendanceJobHandlerTest extends TestCase
     #[Test]
     public function handle_saves_record_via_repository(): void
     {
-        $repository = $this->createMock(AttendanceRepositoryInterface::class);
+        $repository = $this->createMock(AttendanceRepository::class);
         $repository->expects(self::once())
             ->method('save')
             ->with(self::callback(function (AttendanceRecord $record): bool {
@@ -37,7 +37,7 @@ final class AttendanceJobHandlerTest extends TestCase
     #[Test]
     public function handle_throws_when_class_id_missing(): void
     {
-        $repository = $this->createStub(AttendanceRepositoryInterface::class);
+        $repository = $this->createStub(AttendanceRepository::class);
         $handler = new AttendanceJobHandler($repository);
 
         $this->expectException(\InvalidArgumentException::class);
@@ -48,7 +48,7 @@ final class AttendanceJobHandlerTest extends TestCase
     #[Test]
     public function handle_throws_when_date_invalid(): void
     {
-        $repository = $this->createStub(AttendanceRepositoryInterface::class);
+        $repository = $this->createStub(AttendanceRepository::class);
         $handler = new AttendanceJobHandler($repository);
 
         $this->expectException(\InvalidArgumentException::class);
